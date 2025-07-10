@@ -22,9 +22,14 @@ jobs:
         inlineScript: |
           az ad user list
     
-    - name: Get Graph API Token
+    - name: Get Graph API Token & List Users
       shell: pwsh
       run: |
         $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
         $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
-        $GraphToken
+        $headers = @{
+        "Content-Type" = "application/json"
+        Authorization = "Bearer {0}" -f $GraphToken}
+        $apiUrl = "https://graph.microsoft.com/v1.0/users"
+        $method = "GET"
+        Invoke-webrequest -Uri $apiUrl -Method $method -Headers $headers
