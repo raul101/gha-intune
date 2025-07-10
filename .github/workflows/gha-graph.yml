@@ -1,4 +1,4 @@
-name: GitHub Actions
+name: Graph GitHub Actions
 on: workflow_dispatch
 jobs:
   call-graph-api:
