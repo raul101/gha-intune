@@ -1,0 +1,20 @@
+name: GitHub Actions
+on: workflow_dispatch
+jobs:
+  call-graph-api:
+    runs-on: ubuntu-latest
+    environment: GraphApi
+    steps:
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: true
+      - name: Get Graph API Token
+        shell: pwsh
+        run: |
+          $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
+          $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
+          $GraphToken
