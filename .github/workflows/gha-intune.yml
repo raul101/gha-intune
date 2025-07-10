@@ -21,3 +21,10 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az ad user list
+    
+    - name: Get Graph API Token
+      shell: pwsh
+      run: |
+        $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
+        $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
+        $GraphToken
