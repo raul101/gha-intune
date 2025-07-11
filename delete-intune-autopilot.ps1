@@ -3,7 +3,7 @@
     (
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
-        [string]$GraphToken,
+        [string]$GraphToken
     )
 
 
