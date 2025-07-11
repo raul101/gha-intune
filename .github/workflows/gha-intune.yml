@@ -4,8 +4,10 @@ jobs:
   test:
     permissions:
       id-token: write # Require write permission to Fetch an OIDC token.
+      contents: read
 
     runs-on: ubuntu-latest
+    environment: GraphApi
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
