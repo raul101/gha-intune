@@ -13,5 +13,6 @@ ForEach ($AutopilotDevice in $AutopilotDevices)
     If ($Serial.StartsWith("Parallels"))# -and $Serial.Endswith("CF FE 4E 12"))
          {$ID = $AutopilotDevice.value.Id
          Write-Host $ID`n$Serial
-         #Run delete}
+         #Run delete
+         }
   }
