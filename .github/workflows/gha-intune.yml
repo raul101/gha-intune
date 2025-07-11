@@ -27,7 +27,7 @@ jobs:
     - name: Get Autopilot device
       shell: pwsh
       run: |
-        .\delete-intune-managed.ps1 -GraphToken $env:
+        .\delete-intune-managed.ps1 -GraphToken $env:GRAPH_TOKEN
 
     
     - name: Clean up Autopilot device
