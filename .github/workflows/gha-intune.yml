@@ -7,7 +7,6 @@ jobs:
       contents: read
 
     runs-on: ubuntu-latest
-    environment: GraphApi
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
