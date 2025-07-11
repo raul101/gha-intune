@@ -1,7 +1,7 @@
 name: GitHub Actions Intune Cleanup
 on: workflow_dispatch
 jobs: 
-  test:
+  cleanup:
     permissions:
       id-token: write 
       contents: read
