@@ -18,25 +18,19 @@ jobs:
         allow-no-subscriptions: true
         enable-AzPSSession: true
 
-    - name: Clean up Autopilot device
+    - name: Get Graph Credentials
       shell: pwsh
       run: |
         $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
         $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
         Add-Content -Path $env:GITHUB_ENV -Value "GRAPH_TOKEN=$GraphToken"
-    - name: Get Autopilot device
+   
+    - name: Delete Intune Managed Device
       shell: pwsh
       run: |
         .\delete-intune-managed.ps1 -GraphToken $env:GRAPH_TOKEN
 
-    
-    - name: Clean up Autopilot device
-      shell: pwsh
-      run: |
-        $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
-        $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
-        Add-Content -Path $env:GITHUB_ENV -Value "GRAPH_TOKEN=$GraphToken"
-    - name: Get Autopilot device
+    - name: Delete Intune Autopilot Device
       shell: pwsh
       run: |
         .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN
