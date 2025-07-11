@@ -15,12 +15,12 @@ jobs:
         allow-no-subscriptions: true
         enable-AzPSSession: true
     
-    - name: Azure CLI script
-      uses: azure/cli@v2
-      with:
-        azcliversion: latest
-        inlineScript: |
-          az ad device list
+   # - name: Azure CLI script
+   #   uses: azure/cli@v2
+   #   with:
+   #     azcliversion: latest
+   #     inlineScript: |
+   #       az ad device list
     
     - name: Get Graph API Token & List Users
       shell: pwsh
