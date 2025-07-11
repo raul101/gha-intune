@@ -25,7 +25,7 @@ $AutopilotDevices = Invoke-RestMethod -Uri $apiUrl -Method GET -Headers $headers
 #for each loop to ensure device is correct, unable to use equals in device identities filter
 ForEach ($AutopilotDevice in $AutopilotDevices)
   {$Serial = $AutopilotDevice.value.serialNumber #get serial
-    If ($Serial.StartsWith("Parallels"))# -and $Serial.Endswith("CF FE 4E 12")) #if matches
+    If ($Serial.StartsWith("Parallels") -and $Serial.Endswith("CF FE 4E 12")) #if matches
          {$ID = $AutopilotDevice.value.Id #set Id
          #delete device
          $apiUrl = "https://graph.microsoft.com/v1.0/deviceManagement/windowsAutopilotDeviceIdentities/$ID"
