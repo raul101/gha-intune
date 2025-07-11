@@ -1,3 +1,12 @@
+[CmdletBinding()]
+    param
+    (
+        [parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]$GraphToken,
+    )
+
+
 #Variables
 $SerialNumber = "CF FE 4E 12"
 $Manufacturer = "Parallels"
