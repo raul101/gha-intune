@@ -30,6 +30,6 @@ jobs:
         $headers = @{
         "Content-Type" = "application/json"
         Authorization = "Bearer {0}" -f $GraphToken}
-        $apiUrl = "https://graph.microsoft.com/v1.0/devices"
+        $apiUrl = "https://graph.microsoft.com/v1.0/deviceManagement/windowsAutopilotDeviceIdentities"
         $method = "GET"
         Invoke-webrequest -Uri $apiUrl -Method $method -Headers $headers
