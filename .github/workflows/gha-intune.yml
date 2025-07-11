@@ -27,9 +27,8 @@ jobs:
       run: |
         $GraphTokenResponse = az account get-access-token --resource https://graph.microsoft.com
         $GraphToken = ($GraphTokenResponse | ConvertFrom-Json).accessToken
-        $headers = @{
-        "Content-Type" = "application/json"
-        Authorization = "Bearer {0}" -f $GraphToken}
-        $apiUrl = "https://graph.microsoft.com/v1.0/deviceManagement/windowsAutopilotDeviceIdentities"
-        $method = "GET"
-        Invoke-webrequest -Uri $apiUrl -Method $method -Headers $headers
+        Add-Content -Path $env:GITHUB_ENV -Value "GRAPH_TOKEN=$GraphToken"
+    - name: Get Autopilot device
+      shell: pwsh
+      run: |
+        .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN
