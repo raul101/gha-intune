@@ -28,9 +28,9 @@ jobs:
     - name: Delete Intune Managed Device
       shell: pwsh
       run: |
-        .\delete-intune-managed.ps1 -GraphToken $env:GRAPH_TOKEN
-
+        .\delete-intune-managed.ps1 -GraphToken $env:GRAPH_TOKEN -DeviceName UK-AWS-94751646 -UPN Craig@murphycraig250gmailcom.onmicrosoft.com
+    
     - name: Delete Intune Autopilot Device
       shell: pwsh
       run: |
-        .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN
+        .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN -DeviceName UK-AWS-94751646 -Manufacturer 1400
