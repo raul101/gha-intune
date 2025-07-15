@@ -100,11 +100,9 @@ Write-Host "Attempting to delete intune device with ID: '$ManagedID'..."
 
 #delete device
 $apiUrl = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/$ManagedId"
-try {
-    Invoke-RestMethod -Uri $apiUrl -Method DELETE -Headers $headers -ErrorAction Stop
-    exit 0
-}
-catch {
-    Write-Error "Failed to delete Intune device '$DeviceName' (ID: $ManagedId). Error: $($_.Exception.Message)"
-    exit 1
-}
+#try {Invoke-RestMethod -Uri $apiUrl -Method DELETE -Headers $headers -ErrorAction Stop
+#    exit 0
+#}
+#catch {Write-Error "Failed to delete Intune device '$DeviceName' (ID: $ManagedId). Error: $($_.Exception.Message)"
+#    exit 1
+#}
