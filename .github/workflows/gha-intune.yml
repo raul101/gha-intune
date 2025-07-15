@@ -33,4 +33,4 @@ jobs:
     - name: Delete Intune Autopilot Device
       shell: pwsh
       run: |
-        .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN -DeviceName UK-AWS--7516-46 -Manufacturer Microsoft Corporation
+        .\delete-intune-autopilot.ps1 -GraphToken $env:GRAPH_TOKEN -DeviceName UK-AWS--7516-46 -Manufacturer "Microsoft Corporation"
