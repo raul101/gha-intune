@@ -102,8 +102,8 @@ $apiUrl = "https://graph.microsoft.com/v1.0/deviceManagement/windowsAutopilotDev
 
 Write-Host "Attempting to delete Autopilot device with ID: '$ID'..."
 
-try {Invoke-RestMethod -Uri $apiUrl -Method DELETE -Headers $headers -ErrorAction Stop
-     exit 0}
-catch {Write-Error "Failed to delete Autopilot device '$DeviceName'. Error: $($_.Exception.Message)"
-       exit 1}
+#try {Invoke-RestMethod -Uri $apiUrl -Method DELETE -Headers $headers -ErrorAction Stop
+#     exit 0}
+#catch {Write-Error "Failed to delete Autopilot device '$DeviceName'. Error: $($_.Exception.Message)"
+#       exit 1}
          
