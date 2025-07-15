@@ -18,8 +18,8 @@
 
 .PARAMETER Manufacturer
     The manufacturer of the Autopilot device (e.g., 'Amazon EC2'). This is used
-    for filtering and for the explicit StartsWith check of the *full serial number*.
-
+    for filtering the initial graph query.
+    
 .NOTES
     Author: Craig Murphy
     Version: 1.0
@@ -85,7 +85,7 @@ $ID = $null
 
 #for each loop to ensure device is correct, unable to use equals in device identities filter
 ForEach ($AutopilotDevice in $AutopilotDevices.value)
-  {If ($AutopilotDevice.serialNumber -like "$Manufacturer*" -and $AutopilotDevice.serialNumber -like "*$SerialNumber") #if matches
+  {If ($AutopilotDevice.serialNumber -like "1400*" -and $AutopilotDevice.serialNumber -like "*$SerialNumber") #if matches
          {$ID = $AutopilotDevice.Id #set Id
           Write-Host "Found exact match for '$DeviceName'. Device ID is '$ID'"
           break}
